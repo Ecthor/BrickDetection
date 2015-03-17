@@ -77,16 +77,66 @@ src/preinstall: src/Types/preinstall
 # Directory level rules for directory src/Components
 
 # Convenience name for "all" pass in the directory.
-src/Components/all:
+src/Components/all: src/Components/HistogramEq/all
 .PHONY : src/Components/all
 
 # Convenience name for "clean" pass in the directory.
-src/Components/clean:
+src/Components/clean: src/Components/HistogramEq/clean
 .PHONY : src/Components/clean
 
 # Convenience name for "preinstall" pass in the directory.
-src/Components/preinstall:
+src/Components/preinstall: src/Components/HistogramEq/preinstall
 .PHONY : src/Components/preinstall
+
+#=============================================================================
+# Directory level rules for directory src/Components/HistogramEq
+
+# Convenience name for "all" pass in the directory.
+src/Components/HistogramEq/all: src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/all
+.PHONY : src/Components/HistogramEq/all
+
+# Convenience name for "clean" pass in the directory.
+src/Components/HistogramEq/clean: src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/clean
+.PHONY : src/Components/HistogramEq/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/Components/HistogramEq/preinstall:
+.PHONY : src/Components/HistogramEq/preinstall
+
+#=============================================================================
+# Target rules for target src/Components/HistogramEq/CMakeFiles/HistogramEq.dir
+
+# All Build rule for target.
+src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/all:
+	$(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/depend
+	$(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles  1
+	@echo "Built target HistogramEq"
+.PHONY : src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/all
+
+# Include target in all.
+all: src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles 0
+.PHONY : src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/rule
+
+# Convenience name for target.
+HistogramEq: src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/rule
+.PHONY : HistogramEq
+
+# clean rule for target.
+src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/clean:
+	$(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/clean
+.PHONY : src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/clean
+
+# clean rule for target.
+clean: src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/clean
+.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory src/Types

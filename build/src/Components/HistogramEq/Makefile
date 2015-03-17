@@ -113,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles /home/lkorpal/discode_ws/DCL/BrickDetection/build/build/postinstall/CMakeFiles/progress.marks
-	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 build/postinstall/all
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles /home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/HistogramEq/CMakeFiles/progress.marks
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/HistogramEq/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 build/postinstall/clean
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/HistogramEq/clean
 .PHONY : clean
 
 # The main clean target
@@ -129,12 +129,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 build/postinstall/preinstall
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/HistogramEq/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 build/postinstall/preinstall
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/HistogramEq/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -142,18 +142,60 @@ depend:
 	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/rule:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/rule
+.PHONY : src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/rule
+
+# Convenience name for target.
+HistogramEq: src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/rule
+.PHONY : HistogramEq
+
+# fast build rule for target.
+HistogramEq/fast:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build
+.PHONY : HistogramEq/fast
+
+HistogramEq.o: HistogramEq.cpp.o
+.PHONY : HistogramEq.o
+
+# target to build an object file
+HistogramEq.cpp.o:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/HistogramEq.cpp.o
+.PHONY : HistogramEq.cpp.o
+
+HistogramEq.i: HistogramEq.cpp.i
+.PHONY : HistogramEq.i
+
+# target to preprocess a source file
+HistogramEq.cpp.i:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/HistogramEq.cpp.i
+.PHONY : HistogramEq.cpp.i
+
+HistogramEq.s: HistogramEq.cpp.s
+.PHONY : HistogramEq.s
+
+# target to generate assembly for a file
+HistogramEq.cpp.s:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/HistogramEq.cpp.s
+.PHONY : HistogramEq.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... HistogramEq"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... HistogramEq.o"
+	@echo "... HistogramEq.i"
+	@echo "... HistogramEq.s"
 .PHONY : help
 
 

@@ -94,7 +94,7 @@ install/strip/fast: install/strip
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"components\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -142,6 +142,19 @@ depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named HistogramEq
+
+# Build rule for target.
+HistogramEq: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 HistogramEq
+.PHONY : HistogramEq
+
+# fast build rule for target.
+HistogramEq/fast:
+	$(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build
+.PHONY : HistogramEq/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -154,6 +167,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... HistogramEq"
 .PHONY : help
 
 

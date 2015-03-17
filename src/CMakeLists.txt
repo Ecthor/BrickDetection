@@ -15,8 +15,12 @@ SET(DCL_LIBRARIES "${DisCODe_LIBRARIES} ${Boost_LIBRARIES}")
 
 # Find another necessary libraries
 # # OpenCV library
-# FIND_PACKAGE( OpenCV REQUIRED )
+FIND_PACKAGE( OpenCV REQUIRED )
 # SET(DCL_LIBRARIES ${DCL_LIBRARIES} ${OpenCV_LIBS})
+
+DISCODE_FIND_DCL(CvCoreTypes)
+
+SET(DisCODe_LIBRARIES ${DisCODe_LIBRARIES} ${Boost_LIBRARIES})
 
 # Find another DCLs our one depends on
 # Use macro: DISCODE_FIND_DCL(<DCL_NAME>)
