@@ -14,7 +14,7 @@
 	<Subtasks>
 		<Subtask name="Main">
 
-            <Executor name="Loader" period="0.2">
+            <Executor name="Loader" period="0.8">
                 <Component name="Source" type="CameraPGR:CameraPGR" priority="1" bump="0">
 					<param name="camera_serial">13481977</param>
 					<param name="width">1296</param>
@@ -33,21 +33,29 @@
 				</Component>
 
             </Executor>
-			<Executor name="Converter" period="0.4">
+			<Executor name="Converter" period="0.7">
 
 				<Component name="GreyScale" type="CvBasic:CvColorConv" priority="1" bump="0">
 					<param name="type">BGR2GRAY</param>
 				</Component>
-				<Component name="Histogram" type="BrickDetection:HistogramEq" priority="2" bump="0">
-				</Component>
 
 				<Component name="Threshold" type="CvBasic:CvAdaptiveThreshold" priority="3" bump="0">
 					<param name="type">BGR2GRAY</param>
-					<param name="C">6</param>
+					<param name="C">4</param>
+					<param name="blockSize">7</param>
+					<param name="method">ADAPTIVE_THRESH_GAUSSIAN_C</param>
 				</Component>
 				
 				<Component name="Morphology1" type="CvBasic:CvMorphology" priority="4" bump="0">
-					<param name="iterations">2</param>
+					<param name="iterations">10</param>
+					<param name="type">MORPH_OPEN</param>
+				</Component>
+				<Component name="Morphology2" type="CvBasic:CvMorphology" priority="4" bump="0">
+					<param name="iterations">8</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				<Component name="Morphology3" type="CvBasic:CvMorphology" priority="4" bump="0">
+					<param name="iterations">10</param>
 					<param name="type">MORPH_OPEN</param>
 				</Component>
 				
@@ -60,8 +68,8 @@
 
 			<Executor name="Visualization" period="0.1">
 				<Component name="Window" type="CvBasic:CvWindow" priority="1" bump="0">
-					<param name="count">4</param>
-					<param name="title">Original,Result</param>
+					<param name="count">7</param>
+					<param name="title">Original,CvCanny,Morphology1,CvContour,Threshold,Morphology2,Morphology3</param>
 				</Component>
 			</Executor>
 		</Subtask>	
@@ -71,18 +79,23 @@
 	<DataStreams>
 		
 		<Source name="GreyScale.out_img">
-			<sink>Histogram.in_img</sink>	
-			<!-- <sink>FindEdges1.in_img</sink>	 -->		
-		</Source>
-		<Source name="Histogram.out_img">
 			<sink>Threshold.in_img</sink>	
 			<!-- <sink>FindEdges1.in_img</sink>	 -->		
 		</Source>
 		<Source name="Threshold.out_img">
+			<sink>Window.in_img4</sink>		
 			<sink>Morphology1.in_img</sink> 
 		</Source>
 		<Source name="Morphology1.out_img">
 			<sink>Window.in_img2</sink>		
+			<sink>Morphology2.in_img</sink> 
+		</Source>
+		<Source name="Morphology2.out_img">
+			<sink>Window.in_img5</sink>		
+			<sink>Morphology3.in_img</sink> 
+		</Source>
+		<Source name="Morphology3.out_img">
+			<sink>Window.in_img6</sink>		
 			<sink>FindEdges1.in_img</sink> 
 		</Source>
 		<Source name="FindEdges1.out_img">
