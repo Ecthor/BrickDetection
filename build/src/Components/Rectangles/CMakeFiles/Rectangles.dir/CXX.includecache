@@ -31,6 +31,10 @@ EventHandler2.hpp
 /home/lkorpal/discode_ws/DCL/BrickDetection/src/Components/Rectangles/EventHandler2.hpp
 opencv2/opencv.hpp
 -
+opencv2/core/core.hpp
+-
+opencv2/imgproc/imgproc.hpp
+-
 
 /home/lkorpal/discode_ws/DisCODe/build/inst/include/Base/Component.hpp
 map

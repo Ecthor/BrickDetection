@@ -1,1 +1,2 @@
 HistogramEq	libHistogramEq.so
+Rectangles	libRectangles.so

@@ -78,14 +78,17 @@ src/preinstall: src/Types/preinstall
 
 # Convenience name for "all" pass in the directory.
 src/Components/all: src/Components/HistogramEq/all
+src/Components/all: src/Components/Rectangles/all
 .PHONY : src/Components/all
 
 # Convenience name for "clean" pass in the directory.
 src/Components/clean: src/Components/HistogramEq/clean
+src/Components/clean: src/Components/Rectangles/clean
 .PHONY : src/Components/clean
 
 # Convenience name for "preinstall" pass in the directory.
 src/Components/preinstall: src/Components/HistogramEq/preinstall
+src/Components/preinstall: src/Components/Rectangles/preinstall
 .PHONY : src/Components/preinstall
 
 #=============================================================================
@@ -136,6 +139,56 @@ src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/clean:
 
 # clean rule for target.
 clean: src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/Components/Rectangles
+
+# Convenience name for "all" pass in the directory.
+src/Components/Rectangles/all: src/Components/Rectangles/CMakeFiles/Rectangles.dir/all
+.PHONY : src/Components/Rectangles/all
+
+# Convenience name for "clean" pass in the directory.
+src/Components/Rectangles/clean: src/Components/Rectangles/CMakeFiles/Rectangles.dir/clean
+.PHONY : src/Components/Rectangles/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/Components/Rectangles/preinstall:
+.PHONY : src/Components/Rectangles/preinstall
+
+#=============================================================================
+# Target rules for target src/Components/Rectangles/CMakeFiles/Rectangles.dir
+
+# All Build rule for target.
+src/Components/Rectangles/CMakeFiles/Rectangles.dir/all:
+	$(MAKE) -f src/Components/Rectangles/CMakeFiles/Rectangles.dir/build.make src/Components/Rectangles/CMakeFiles/Rectangles.dir/depend
+	$(MAKE) -f src/Components/Rectangles/CMakeFiles/Rectangles.dir/build.make src/Components/Rectangles/CMakeFiles/Rectangles.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles  2
+	@echo "Built target Rectangles"
+.PHONY : src/Components/Rectangles/CMakeFiles/Rectangles.dir/all
+
+# Include target in all.
+all: src/Components/Rectangles/CMakeFiles/Rectangles.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/Components/Rectangles/CMakeFiles/Rectangles.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 src/Components/Rectangles/CMakeFiles/Rectangles.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles 0
+.PHONY : src/Components/Rectangles/CMakeFiles/Rectangles.dir/rule
+
+# Convenience name for target.
+Rectangles: src/Components/Rectangles/CMakeFiles/Rectangles.dir/rule
+.PHONY : Rectangles
+
+# clean rule for target.
+src/Components/Rectangles/CMakeFiles/Rectangles.dir/clean:
+	$(MAKE) -f src/Components/Rectangles/CMakeFiles/Rectangles.dir/build.make src/Components/Rectangles/CMakeFiles/Rectangles.dir/clean
+.PHONY : src/Components/Rectangles/CMakeFiles/Rectangles.dir/clean
+
+# clean rule for target.
+clean: src/Components/Rectangles/CMakeFiles/Rectangles.dir/clean
 .PHONY : clean
 
 #=============================================================================

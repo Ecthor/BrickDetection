@@ -22,6 +22,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/lkorpal/discode_ws/DisCODe/build/inst/include"
   "../src/."
   "/usr/include/opencv"
+  "/home/lkorpal/discode_ws/DCL/CvCoreTypes/dist/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

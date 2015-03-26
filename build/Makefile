@@ -155,6 +155,19 @@ HistogramEq/fast:
 	$(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build
 .PHONY : HistogramEq/fast
 
+#=============================================================================
+# Target rules for targets named Rectangles
+
+# Build rule for target.
+Rectangles: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Rectangles
+.PHONY : Rectangles
+
+# fast build rule for target.
+Rectangles/fast:
+	$(MAKE) -f src/Components/Rectangles/CMakeFiles/Rectangles.dir/build.make src/Components/Rectangles/CMakeFiles/Rectangles.dir/build
+.PHONY : Rectangles/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -168,6 +181,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... HistogramEq"
+	@echo "... Rectangles"
 .PHONY : help
 
 

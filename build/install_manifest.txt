@@ -1,1 +1,2 @@
 /home/lkorpal/discode_ws/DCL/BrickDetection/dist/lib/libHistogramEq.so
+/home/lkorpal/discode_ws/DCL/BrickDetection/dist/lib/libRectangles.so

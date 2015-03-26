@@ -15,6 +15,10 @@
 
 #include <opencv2/opencv.hpp>
 
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
+using namespace cv;
 
 namespace Processors {
 namespace Rectangles {
@@ -68,6 +72,7 @@ protected:
 
 
 	// Input data streams
+	Base::DataStreamIn<vector<vector<Point> > > in_contours;
 	Base::DataStreamIn<cv::Mat> in_img;
 
 	// Output data streams

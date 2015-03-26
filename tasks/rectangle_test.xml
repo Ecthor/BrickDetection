@@ -1,0 +1,78 @@
+<Task>
+	<!-- reference task information -->
+	<Reference>
+		<Author>
+			<name>Lukasz Korpal</name>
+			<link></link>
+		</Author>
+	</Reference>
+	
+	<!-- task definition -->
+	<Subtasks>
+		<Subtask name="Main">
+			<Executor name="Processing"  period="1">
+				<Component name="Sequence" type="CvBasic:Sequence" priority="1" bump="1">
+					<param name="sequence.directory">%[TASK_LOCATION]%/../img/</param>
+					<param name="sequence.pattern">basic-shapes-2\.png</param>
+					<param name="mode.loop">1</param>
+					<param name="mode.iterate">0</param>
+				</Component>
+				
+				<Component name="ColorConverter" type="CvBasic:CvColorConv" priority="2" bump="0">
+					<param name="type">RGB2HSV</param>
+				</Component>
+
+				<Component name="HSVClassifier" type="CvBasic:HSVLUT" priority="3" bump="0">
+					<param name="hue.threshold.low">10</param>
+					<param name="hue.threshold.high">40</param>
+				</Component>
+				
+				<Component name="FindEdges1_B" type="CvBasic:CvCanny" priority="10" bump="0">
+				</Component>
+				
+				<Component name="FindEdges2_B" type="CvBasic:CvContour" priority="11" bump="0">
+				</Component>
+				
+				<Component name="FindRectangles_B" type="BrickDetection:Rectangles" priority="12" bump="0">
+				</Component>
+			</Executor>
+
+			<Executor name="Visualization" period="0.2">
+				<Component name="Window" type="CvBasic:CvWindow" priority="1" bump="0">
+					<param name="count">3</param>
+					<param name="title">Original,Result,Classifier</param>
+				</Component>
+			</Executor>
+		</Subtask>	
+	
+	</Subtasks>
+	
+	<!-- pipes connecting datastreams -->
+	<DataStreams>
+		<Source name="Sequence.out_img">
+			<sink>ColorConverter.in_img</sink>	
+			<sink>FindRectangles_B.in_img</sink>		
+			<sink>Window.in_img0</sink>		
+		</Source>
+		<Source name="ColorConverter.out_img">
+			<sink>HSVClassifier.in_img</sink>		
+		</Source>
+		<Source name="HSVClassifier.out_img">
+			<sink>FindEdges1_B.in_img</sink>	
+			<sink>Window.in_img2</sink>			
+		</Source>
+		<Source name="FindEdges1_B.out_img">
+			<sink>FindEdges2_B.in_img</sink>		
+		</Source>
+		<Source name="FindEdges2_B.out_contours">
+			<sink>FindRectangles_B.in_contours</sink>		
+		</Source>
+		<Source name="FindRectangles_B.out_img">
+			<sink>Window.in_img1</sink>		
+		</Source>
+	</DataStreams>
+</Task>
+
+
+
+

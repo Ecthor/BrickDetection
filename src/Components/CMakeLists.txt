@@ -2,4 +2,5 @@
 
 ADD_COMPONENT(HistogramEq)
 
+
 ADD_COMPONENT(Rectangles)
