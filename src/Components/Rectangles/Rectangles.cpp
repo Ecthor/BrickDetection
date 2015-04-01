@@ -28,6 +28,7 @@ void Rectangles::prepareInterface() {
 	registerStream("in_contours", &in_contours);
 	registerStream("in_img", &in_img);
 	registerStream("out_img", &out_img);
+	registerStream("out_contours", &out_contours);
 	// Register handlers
 	registerHandler("FindRectangle", boost::bind(&Rectangles::FindRectangle, this));
 	addDependency("FindRectangle", &in_contours);
@@ -77,6 +78,7 @@ void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& cont
 void Rectangles::FindRectangle() {
 	
 	vector<vector<Point> > contours = in_contours.read();
+	vector<vector<Point> > outcontours;
 	cv::Mat src = in_img.read();
 	cv::Mat dst = src.clone();
 	std::vector<cv::Point> approx;
@@ -109,11 +111,15 @@ void Rectangles::FindRectangle() {
 			// Use the degrees obtained above and the number of vertices
 			// to determine the shape of the contour
 			if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3)
-			setLabel(dst, "RECT", contours[i]);
-			else if (vtc == 5 && mincos >= -0.34 && maxcos <= -0.27)
-			setLabel(dst, "PENTA", contours[i]);
-			else if (vtc == 6 && mincos >= -0.55 && maxcos <= -0.45)
-			setLabel(dst, "HEXA", contours[i]);
+			{
+				setLabel(dst, "RECT", contours[i]);
+				outcontours.push_back(approx);
+				CLOG(LNOTICE) << "Rectangle found!" << approx;
+				circle(dst, approx[0], 5, cv::Scalar(255,255,0));
+				circle(dst, approx[1], 5, cv::Scalar(255,255,0));
+				circle(dst, approx[2], 5, cv::Scalar(255,255,0));
+				circle(dst, approx[3], 5, cv::Scalar(255,255,0));
+			}
 		}
 		else
 		{
@@ -129,6 +135,7 @@ void Rectangles::FindRectangle() {
 
 
 	out_img.write(dst);
+	out_contours.write(outcontours);
 }
 
 

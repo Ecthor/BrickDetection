@@ -19,10 +19,11 @@
 					<param name="camera_serial">13481977</param>
 					<param name="width">1296</param>
 					<param name="height">1032</param>
-					<param name="auto_exposure_mode">manual</param>
 					<param name="brightness_mode">manual</param>
 					<param name="shutter_mode">manual</param>
-					<param name="shutter_value">40</param>
+					<param name="shutter_value">60</param>
+					<param name="gain_mode">manual</param>
+					<param name="gain_value">0</param>
 				</Component>
 				
                 <Component name="CameraInfo" type="CvCoreTypes:CameraInfoProvider" priority="2">
@@ -88,14 +89,17 @@
 				<Component name="FindEdges2_B" type="CvBasic:CvContour" priority="7" bump="0">
 				</Component>
 				
-				<Component name="FindRectangles_B" type="BrickDetection:Rectangles" priority="8" bump="0">
+				<Component name="FindRectangles_B" type="BrickDetection:Rectangles" priority="8" bump="5">
+				</Component>
+				
+				<Component name="FindRectangles_B2" type="BrickDetection:Rectangles" priority="9" bump="5">
 				</Component>
 			</Executor>
 
 			<Executor name="Visualization" period="0.01">
 				<Component name="Window" type="CvBasic:CvWindow" priority="1" bump="0">
-					<param name="count">5</param>
-					<param name="title">Original,HSV,Edges,Shapes,Morphologies</param>
+					<param name="count">6</param>
+					<param name="title">Original,HSV,Edges,Shapes,Morphologies,Shapes2</param>
 				</Component>
 			</Executor>
 		</Subtask>	
@@ -134,6 +138,12 @@
         <Source name="FindRectangles_B.out_img">
 			<sink>Window.in_img3</sink>		
         </Source>
+        <Source name="FindRectangles_B.out_contours">
+			<sink>FindRectangles_B2.in_contours</sink>	
+        </Source>
+        <Source name="FindRectangles_B2.out_img">
+			<sink>Window.in_img5</sink>		
+        </Source>
 		
 		<!-- Img processing -->
 		
@@ -147,7 +157,8 @@
         <Source name="Undistort.out_img">
             <sink>ColorConverter.in_img</sink>	
 			<sink>Window.in_img0</sink>	
-			<sink>FindRectangles_B.in_img</sink>		
+			<sink>FindRectangles_B.in_img</sink>	
+			<sink>FindRectangles_B2.in_img</sink>		
         </Source>
     </DataStreams>
 </Task>

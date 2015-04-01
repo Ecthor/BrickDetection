@@ -77,6 +77,7 @@ protected:
 
 	// Output data streams
 	Base::DataStreamOut<cv::Mat> out_img;
+	Base::DataStreamOut<vector<vector<Point> > > out_contours;
 
 	// Handlers
 
