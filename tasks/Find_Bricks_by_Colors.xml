@@ -45,7 +45,7 @@
 				<Component name="HSVClassifier_R" type="CvBasic:HSVLUT" priority="2" bump="0">
 					<param name="hue.threshold.low">0</param>
 					<param name="hue.threshold.high">8</param>
-					<param name="saturation.threshold.low">80</param>
+					<param name="saturation.threshold.low">140</param>
 					<param name="saturation.threshold.high">255</param>
 					<param name="value.threshold.low">0</param>
 					<param name="value.threshold.high">255</param>
@@ -54,7 +54,8 @@
 				<Component name="HSVClassifier_G" type="CvBasic:HSVLUT" priority="3" bump="0">
 					<param name="hue.threshold.low">70</param>
 					<param name="hue.threshold.high">101</param>
-					<param name="saturation.threshold.low">100</param>
+					<param name="saturation.threshold.low">180
+					</param>
 					<param name="saturation.threshold.high">255</param>
 					<param name="value.threshold.low">0</param>
 					<param name="value.threshold.high">255</param>
@@ -63,9 +64,9 @@
 				<Component name="HSVClassifier_B" type="CvBasic:HSVLUT" priority="4" bump="0">
 					<param name="hue.threshold.low">105</param>
 					<param name="hue.threshold.high">115</param>
-					<param name="saturation.threshold.low">90</param>
+					<param name="saturation.threshold.low">202</param>
 					<param name="saturation.threshold.high">255</param>
-					<param name="value.threshold.low">70</param>
+					<param name="value.threshold.low">130</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 				<!--
@@ -75,46 +76,46 @@
 				
 				
 				<Component name="Morphology1_R" type="CvBasic:CvMorphology" priority="5" bump="0">
-					<param name="iterations">2</param>
-					<param name="type">MORPH_OPEN</param>
-				</Component>
-				<Component name="Morphology2_R" type="CvBasic:CvMorphology" priority="6" bump="0">
-					<param name="iterations">1</param>
+					<param name="iterations">4</param>
 					<param name="type">MORPH_CLOSE</param>
 				</Component>
-				<Component name="Morphology3_R" type="CvBasic:CvMorphology" priority="7" bump="0">
-					<param name="iterations">2</param>
+				<Component name="Morphology2_R" type="CvBasic:CvMorphology" priority="6" bump="0">
+					<param name="iterations">3</param>
 					<param name="type">MORPH_OPEN</param>
+				</Component>
+				<Component name="Morphology3_R" type="CvBasic:CvMorphology" priority="7" bump="0">
+					<param name="iterations">4</param>
+					<param name="type">MORPH_CLOSE</param>
 				</Component>
 				
 				 
 				
 				<Component name="Morphology1_G" type="CvBasic:CvMorphology" priority="8" bump="0">
-					<param name="iterations">3</param>
+					<param name="iterations">4</param>
 					<param name="type">MORPH_CLOSE</param>
 				</Component>
 				<Component name="Morphology2_G" type="CvBasic:CvMorphology" priority="9" bump="0">
-					<param name="iterations">1</param>
+					<param name="iterations">3</param>
 					<param name="type">MORPH_OPEN</param>
 				</Component>
 				<Component name="Morphology3_G" type="CvBasic:CvMorphology" priority="10" bump="0">
-					<param name="iterations">3</param>
+					<param name="iterations">4</param>
 					<param name="type">MORPH_CLOSE</param>
 				</Component>
 				
 				
 				
 				<Component name="Morphology1_B" type="CvBasic:CvMorphology" priority="11" bump="0">
-					<param name="iterations">2</param>
-					<param name="type">MORPH_OPEN</param>
-				</Component>
-				<Component name="Morphology2_B" type="CvBasic:CvMorphology" priority="12" bump="0">
-					<param name="iterations">1</param>
+					<param name="iterations">4</param>
 					<param name="type">MORPH_CLOSE</param>
 				</Component>
-				<Component name="Morphology3_B" type="CvBasic:CvMorphology" priority="13" bump="0">
-					<param name="iterations">2</param>
+				<Component name="Morphology2_B" type="CvBasic:CvMorphology" priority="12" bump="0">
+					<param name="iterations">3</param>
 					<param name="type">MORPH_OPEN</param>
+				</Component>
+				<Component name="Morphology3_B" type="CvBasic:CvMorphology" priority="13" bump="0">
+					<param name="iterations">4</param>
+					<param name="type">MORPH_CLOSE</param>
 				</Component>
 				
 				

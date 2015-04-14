@@ -122,15 +122,16 @@ void Rectangles::FindRectangle() {
 				circle(dst, approx[0], 5, cv::Scalar(255,255,0));
 				CLOG(LNOTICE) << "Rectangle 0x found! " << float(approx[0].x);
 				outdata.push_back(float(approx[0].x));
-				outdata.push_back(float(approx[0].y));
 				circle(dst, approx[1], 5, cv::Scalar(255,255,0));
 				outdata.push_back(float(approx[1].x));
-				outdata.push_back(float(approx[1].y));
 				circle(dst, approx[2], 5, cv::Scalar(255,255,0));
 				outdata.push_back(float(approx[2].x));
-				outdata.push_back(float(approx[2].y));
 				circle(dst, approx[3], 5, cv::Scalar(255,255,0));
 				outdata.push_back(float(approx[3].x));
+				
+				outdata.push_back(float(approx[0].y));
+				outdata.push_back(float(approx[1].y));
+				outdata.push_back(float(approx[2].y));
 				outdata.push_back(float(approx[3].y));
 				++counter;
 			}
