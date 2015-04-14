@@ -94,6 +94,10 @@
 				
 				<Component name="FindRectangles_B2" type="BrickDetection:Rectangles" priority="9" bump="5">
 				</Component>
+				
+				<Component name="Proxy" type="ROSProxy:Float32MultiArrayProxy" priority="10" bump="0">
+					
+				</Component>
 			</Executor>
 
 			<Executor name="Visualization" period="0.01">
@@ -139,11 +143,15 @@
 			<sink>Window.in_img3</sink>		
         </Source>
         <Source name="FindRectangles_B.out_contours">
-			<sink>FindRectangles_B2.in_contours</sink>	
-        </Source>
+			<sink>FindRectangles_B2.in_contours</sink>
+        </Source>	
         <Source name="FindRectangles_B2.out_img">
 			<sink>Window.in_img5</sink>		
         </Source>
+        <Source name="FindRectangles_B2.out_data">
+			<sink>Proxy.in_data</sink>		
+        </Source>
+        
 		
 		<!-- Img processing -->
 		

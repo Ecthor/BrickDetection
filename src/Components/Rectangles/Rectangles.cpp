@@ -29,6 +29,7 @@ void Rectangles::prepareInterface() {
 	registerStream("in_img", &in_img);
 	registerStream("out_img", &out_img);
 	registerStream("out_contours", &out_contours);
+	registerStream("out_data", &out_data);
 	// Register handlers
 	registerHandler("FindRectangle", boost::bind(&Rectangles::FindRectangle, this));
 	addDependency("FindRectangle", &in_contours);
@@ -79,9 +80,11 @@ void Rectangles::FindRectangle() {
 	
 	vector<vector<Point> > contours = in_contours.read();
 	vector<vector<Point> > outcontours;
+	vector<float> outdata;
 	cv::Mat src = in_img.read();
 	cv::Mat dst = src.clone();
 	std::vector<cv::Point> approx;
+	int counter = 0;
 	
 	for (int i = 0; i < contours.size(); i++)
 	{
@@ -115,10 +118,21 @@ void Rectangles::FindRectangle() {
 				setLabel(dst, "RECT", contours[i]);
 				outcontours.push_back(approx);
 				CLOG(LNOTICE) << "Rectangle found!" << approx;
+				outdata.push_back(float(counter));
 				circle(dst, approx[0], 5, cv::Scalar(255,255,0));
+				CLOG(LNOTICE) << "Rectangle 0x found! " << float(approx[0].x);
+				outdata.push_back(float(approx[0].x));
+				outdata.push_back(float(approx[0].y));
 				circle(dst, approx[1], 5, cv::Scalar(255,255,0));
+				outdata.push_back(float(approx[1].x));
+				outdata.push_back(float(approx[1].y));
 				circle(dst, approx[2], 5, cv::Scalar(255,255,0));
+				outdata.push_back(float(approx[2].x));
+				outdata.push_back(float(approx[2].y));
 				circle(dst, approx[3], 5, cv::Scalar(255,255,0));
+				outdata.push_back(float(approx[3].x));
+				outdata.push_back(float(approx[3].y));
+				++counter;
 			}
 		}
 		else
@@ -136,6 +150,7 @@ void Rectangles::FindRectangle() {
 
 	out_img.write(dst);
 	out_contours.write(outcontours);
+	out_data.write(outdata);
 }
 
 
