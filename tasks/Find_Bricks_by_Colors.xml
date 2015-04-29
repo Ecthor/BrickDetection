@@ -106,11 +106,11 @@
 				
 				
 				<Component name="Morphology1_B" type="CvBasic:CvMorphology" priority="11" bump="0">
-					<param name="iterations">4</param>
+					<param name="iterations">7</param>
 					<param name="type">MORPH_CLOSE</param>
 				</Component>
 				<Component name="Morphology2_B" type="CvBasic:CvMorphology" priority="12" bump="0">
-					<param name="iterations">3</param>
+					<param name="iterations">2</param>
 					<param name="type">MORPH_OPEN</param>
 				</Component>
 				<Component name="Morphology3_B" type="CvBasic:CvMorphology" priority="13" bump="0">
