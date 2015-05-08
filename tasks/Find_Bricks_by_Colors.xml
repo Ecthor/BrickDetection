@@ -43,31 +43,30 @@
 				</Component>
 
 				<Component name="HSVClassifier_Board" type="CvBasic:HSVLUT" priority="2" bump="0">
-					<param name="hue.threshold.low">10</param>
-					<param name="hue.threshold.high">30</param>
-					<param name="saturation.threshold.low">25</param>
-					<param name="saturation.threshold.high">90</param>
-					<param name="value.threshold.low">200</param>
+					<param name="hue.threshold.low">0</param>
+					<param name="hue.threshold.high">180</param>
+					<param name="saturation.threshold.low">0</param>
+					<param name="saturation.threshold.high">30</param>
+					<param name="value.threshold.low">170</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 
 				<Component name="HSVClassifier_R" type="CvBasic:HSVLUT" priority="3" bump="0">
 					<param name="hue.threshold.low">2</param>
 					<param name="hue.threshold.high">8</param>
-					<param name="saturation.threshold.low">210</param>
-					<param name="saturation.threshold.high">250</param>
-					<param name="value.threshold.low">200</param>
-					<param name="value.threshold.high">255</param>
+					<param name="saturation.threshold.low">180</param>
+					<param name="saturation.threshold.high">220</param>
+					<param name="value.threshold.low">100</param>
+					<param name="value.threshold.high">220</param>
 				</Component>
 
 				<Component name="HSVClassifier_G" type="CvBasic:HSVLUT" priority="4" bump="0">
-					<param name="hue.threshold.low">70</param>
-					<param name="hue.threshold.high">101</param>
-					<param name="saturation.threshold.low">115
-					</param>
-					<param name="saturation.threshold.high">150</param>
-					<param name="value.threshold.low">0</param>
-					<param name="value.threshold.high">100</param>
+					<param name="hue.threshold.low">85</param>
+					<param name="hue.threshold.high">95</param>
+					<param name="saturation.threshold.low">150</param>
+					<param name="saturation.threshold.high">255</param>
+					<param name="value.threshold.low">55</param>
+					<param name="value.threshold.high">255</param>
 				</Component>
 
 				<Component name="HSVClassifier_B" type="CvBasic:HSVLUT" priority="5" bump="0">
@@ -75,7 +74,7 @@
 					<param name="hue.threshold.high">115</param>
 					<param name="saturation.threshold.low">180</param>
 					<param name="saturation.threshold.high">255</param>
-					<param name="value.threshold.low">80</param>
+					<param name="value.threshold.low">90</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 				<!--
@@ -173,8 +172,8 @@
 
 			<Executor name="Visualization" period="0.01">
 				<Component name="Window" type="CvBasic:CvWindow" priority="1" bump="0">
-					<param name="count">10</param>
-					<param name="title">Original,HSV+mR,HSV+mG,HSV+mB,ER,EG,EB,RectR,RectG,RectB</param>
+					<param name="count">11</param>
+					<param name="title">Original,HSV+mR,HSV+mG,HSV+mB,ER,EG,EB,RectR,RectG,RectB,Board</param>
 				</Component>
 			</Executor>
 		</Subtask>	
@@ -248,7 +247,9 @@
 		</Source>
 		
 		
-		
+		<Source name="FindEdges1_Board.out_img">
+			<sink>FindEdges2_Board.in_img</sink>	
+		</Source>
 		<Source name="FindEdges1_R.out_img">
 			<sink>FindEdges2_R.in_img</sink>	
 		</Source>
@@ -285,6 +286,9 @@
 		<Source name="FindRectangles_Board.out_data">
 					
 		</Source>
+		<Source name="FindRectangles_Board.out_img">
+			<sink>Window.in_img0</sink>		
+		</Source>
 		<Source name="FindRectangles_R.out_img">
 			<sink>Window.in_img7</sink>		
 		</Source>
@@ -307,6 +311,7 @@
         <Source name="Undistort.out_img">
             <sink>ColorConverter.in_img</sink>	
 			<sink>Window.in_img0</sink>		
+			<sink>FindRectangles_Board.in_img</sink>
 			<sink>FindRectangles_R.in_img</sink>	
 			<sink>FindRectangles_G.in_img</sink>	
 			<sink>FindRectangles_B.in_img</sink>	
