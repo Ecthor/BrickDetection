@@ -143,6 +143,7 @@
 				<Component name="FindEdges2_Board" type="CvBasic:CvContour" priority="19" bump="0">
 				</Component>
 				<Component name="FindRectangles_Board" type="BrickDetection:Rectangles" priority="20" bump="0">
+					<param name="Colour">0</param>
 				</Component>
 				
 				
@@ -152,6 +153,7 @@
 				<Component name="FindEdges2_R" type="CvBasic:CvContour" priority="22" bump="0">
 				</Component>
 				<Component name="FindRectangles_R" type="BrickDetection:Rectangles" priority="23" bump="0">
+					<param name="Colour">1</param>
 				</Component>
 				
 				<Component name="FindEdges1_G" type="CvBasic:CvCanny" priority="24" bump="0">
@@ -159,6 +161,7 @@
 				<Component name="FindEdges2_G" type="CvBasic:CvContour" priority="25" bump="0">
 				</Component>
 				<Component name="FindRectangles_G" type="BrickDetection:Rectangles" priority="26" bump="0">
+					<param name="Colour">2</param>
 				</Component>
 				
 				
@@ -167,6 +170,16 @@
 				<Component name="FindEdges2_B" type="CvBasic:CvContour" priority="28" bump="0">
 				</Component>
 				<Component name="FindRectangles_B" type="BrickDetection:Rectangles" priority="29" bump="0">
+					<param name="Colour">3</param>
+				</Component>
+				
+				<Component name="ProxyBoard" type="ROSProxy:Float32MultiArrayProxy" priority="30" bump="0">
+				</Component>
+				<Component name="ProxyR" type="ROSProxy:Float32MultiArrayProxy" priority="31" bump="0">
+				</Component>
+				<Component name="ProxyG" type="ROSProxy:Float32MultiArrayProxy" priority="32" bump="0">
+				</Component>
+				<Component name="ProxyB" type="ROSProxy:Float32MultiArrayProxy" priority="33" bump="0">
 				</Component>
 			</Executor>
 
@@ -284,8 +297,18 @@
 		</Source>
 		
 		<Source name="FindRectangles_Board.out_data">
-					
+			<sink>ProxyBoard.in_data</sink>		
 		</Source>
+		<Source name="FindRectangles_R.out_data">
+			<sink>ProxyR.in_data</sink>		
+		</Source>
+		<Source name="FindRectangles_G.out_data">
+			<sink>ProxyG.in_data</sink>		
+		</Source>
+		<Source name="FindRectangles_B.out_data">
+			<sink>ProxyB.in_data</sink>		
+		</Source>
+		
 		<Source name="FindRectangles_Board.out_img">
 			<sink>Window.in_img0</sink>		
 		</Source>

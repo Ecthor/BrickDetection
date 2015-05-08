@@ -46,11 +46,11 @@
 				</Component>
 
 				<Component name="HSVClassifier_B" type="CvBasic:HSVLUT" priority="2" bump="0">
-					<param name="hue.threshold.low">70</param>
-					<param name="hue.threshold.high">90</param>
-					<param name="saturation.threshold.low">70</param>
+					<param name="hue.threshold.low">105</param>
+					<param name="hue.threshold.high">115</param>
+					<param name="saturation.threshold.low">180</param>
 					<param name="saturation.threshold.high">255</param>
-					<param name="value.threshold.low">0</param>
+					<param name="value.threshold.low">90</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 				<!--Board
@@ -109,6 +109,7 @@
 				</Component>
 				
 				<Component name="FindRectangles_B2" type="BrickDetection:Rectangles" priority="9" bump="5">
+					<param name="Colour">1</param>
 				</Component>
 				
 				<Component name="Proxy" type="ROSProxy:Float32MultiArrayProxy" priority="10" bump="0">

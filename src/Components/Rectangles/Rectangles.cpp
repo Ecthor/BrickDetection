@@ -16,8 +16,9 @@ namespace Processors {
 namespace Rectangles {
 
 Rectangles::Rectangles(const std::string & name) :
-		Base::Component(name)  {
-
+		Base::Component(name),
+		BrickColour("Colour", -1)  {
+	registerProperty(BrickColour);
 }
 
 Rectangles::~Rectangles() {
@@ -118,7 +119,7 @@ void Rectangles::FindRectangle() {
 				setLabel(dst, "RECT", contours[i]);
 				outcontours.push_back(approx);
 				CLOG(LNOTICE) << "Rectangle found!" << approx;
-				outdata.push_back(float(counter));
+				outdata.push_back(float(BrickColour));
 				circle(dst, approx[0], 5, cv::Scalar(255,255,0));
 				CLOG(LNOTICE) << "Rectangle 0x found! " << float(approx[0].x);
 				outdata.push_back(float(approx[0].x));

@@ -83,7 +83,7 @@ protected:
 	// Handlers
 
 	// Properties
-
+	Base::Property<int> BrickColour;
 	
 	// Handlers
 	void FindRectangle();
