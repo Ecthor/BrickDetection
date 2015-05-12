@@ -56,7 +56,7 @@
 					<param name="hue.threshold.high">8</param>
 					<param name="saturation.threshold.low">180</param>
 					<param name="saturation.threshold.high">220</param>
-					<param name="value.threshold.low">100</param>
+					<param name="value.threshold.low">80</param>
 					<param name="value.threshold.high">220</param>
 				</Component>
 
@@ -65,7 +65,7 @@
 					<param name="hue.threshold.high">95</param>
 					<param name="saturation.threshold.low">150</param>
 					<param name="saturation.threshold.high">255</param>
-					<param name="value.threshold.low">55</param>
+					<param name="value.threshold.low">60</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 
@@ -224,6 +224,7 @@
 		</Source>
 		<Source name="Morphology3_Board.out_img">
 			<sink>FindEdges1_Board.in_img</sink>
+			<sink>Window.in_img10</sink>		
 		</Source>
 		
 		<Source name="Morphology1_R.out_img">
