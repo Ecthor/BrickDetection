@@ -46,7 +46,7 @@
 					<param name="hue.threshold.low">0</param>
 					<param name="hue.threshold.high">180</param>
 					<param name="saturation.threshold.low">0</param>
-					<param name="saturation.threshold.high">30</param>
+					<param name="saturation.threshold.high">100</param>
 					<param name="value.threshold.low">170</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
@@ -54,16 +54,16 @@
 				<Component name="HSVClassifier_R" type="CvBasic:HSVLUT" priority="3" bump="0">
 					<param name="hue.threshold.low">2</param>
 					<param name="hue.threshold.high">8</param>
-					<param name="saturation.threshold.low">180</param>
-					<param name="saturation.threshold.high">220</param>
-					<param name="value.threshold.low">80</param>
-					<param name="value.threshold.high">220</param>
+					<param name="saturation.threshold.low">230</param>
+					<param name="saturation.threshold.high">255</param>
+					<param name="value.threshold.low">228</param>
+					<param name="value.threshold.high">255</param>
 				</Component>
 
 				<Component name="HSVClassifier_G" type="CvBasic:HSVLUT" priority="4" bump="0">
-					<param name="hue.threshold.low">85</param>
-					<param name="hue.threshold.high">95</param>
-					<param name="saturation.threshold.low">150</param>
+					<param name="hue.threshold.low">75</param>
+					<param name="hue.threshold.high">90</param>
+					<param name="saturation.threshold.low">110</param>
 					<param name="saturation.threshold.high">255</param>
 					<param name="value.threshold.low">60</param>
 					<param name="value.threshold.high">255</param>
@@ -186,7 +186,7 @@
 			<Executor name="Visualization" period="0.01">
 				<Component name="Window" type="CvBasic:CvWindow" priority="1" bump="0">
 					<param name="count">11</param>
-					<param name="title">Original,HSV+mR,HSV+mG,HSV+mB,ER,EG,EB,RectR,RectG,RectB,Board</param>
+					<param name="title">MorphBoard,HSV+mR,HSV+mG,HSV+mB,ER,EG,EB,RectR,RectG,RectB,Board</param>
 				</Component>
 			</Executor>
 		</Subtask>	
@@ -224,7 +224,7 @@
 		</Source>
 		<Source name="Morphology3_Board.out_img">
 			<sink>FindEdges1_Board.in_img</sink>
-			<sink>Window.in_img10</sink>		
+			<sink>Window.in_img0</sink>		
 		</Source>
 		
 		<Source name="Morphology1_R.out_img">
@@ -334,7 +334,6 @@
 
         <Source name="Undistort.out_img">
             <sink>ColorConverter.in_img</sink>	
-			<sink>Window.in_img0</sink>		
 			<sink>FindRectangles_Board.in_img</sink>
 			<sink>FindRectangles_R.in_img</sink>	
 			<sink>FindRectangles_G.in_img</sink>	

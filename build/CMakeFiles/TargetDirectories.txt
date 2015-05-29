@@ -1,2 +1,3 @@
+/home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir
 /home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/HistogramEq/CMakeFiles/HistogramEq.dir
 /home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/Rectangles/CMakeFiles/Rectangles.dir

@@ -2,5 +2,6 @@
 
 ADD_COMPONENT(HistogramEq)
 
+ADD_COMPONENT(ApplyCornerMask)
 
 ADD_COMPONENT(Rectangles)

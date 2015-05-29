@@ -1,4 +1,4 @@
-# Install script for directory: /home/lkorpal/discode_ws/DCL/BrickDetection/src/Components
+# Install script for directory: /home/lkorpal/discode_ws/DCL/BrickDetection/src/Components/ApplyCornerMask
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,11 +32,13 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   SET(CMAKE_INSTALL_SO_NO_EXE "1")
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
-IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  INCLUDE("/home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/HistogramEq/cmake_install.cmake")
-  INCLUDE("/home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/ApplyCornerMask/cmake_install.cmake")
-  INCLUDE("/home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/Rectangles/cmake_install.cmake")
-
-ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
+IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "components")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/ApplyCornerMask/libApplyCornerMask.so")
+  IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libApplyCornerMask.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libApplyCornerMask.so")
+    IF(CMAKE_INSTALL_DO_STRIP)
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libApplyCornerMask.so")
+    ENDIF(CMAKE_INSTALL_DO_STRIP)
+  ENDIF()
+ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "components")
 

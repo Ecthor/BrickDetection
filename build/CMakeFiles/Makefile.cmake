@@ -14,6 +14,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "postinstall/CMakeLists.txt"
   "../src/BrickDetectionConfig.cmake.in"
   "../src/CMakeLists.txt"
+  "../src/Components/ApplyCornerMask/CMakeLists.txt"
   "../src/Components/CMakeLists.txt"
   "../src/Components/HistogramEq/CMakeLists.txt"
   "../src/Components/Rectangles/CMakeLists.txt"
@@ -55,6 +56,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/Components/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/Components/HistogramEq/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/Components/ApplyCornerMask/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/Components/Rectangles/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/Types/CMakeFiles/CMakeDirectoryInformation.cmake"
   "build/postinstall/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -63,5 +65,6 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/DependInfo.cmake"
+  "src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/DependInfo.cmake"
   "src/Components/Rectangles/CMakeFiles/Rectangles.dir/DependInfo.cmake"
   )

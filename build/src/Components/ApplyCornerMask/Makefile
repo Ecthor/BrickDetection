@@ -113,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles /home/lkorpal/discode_ws/DCL/BrickDetection/build/src/Components/ApplyCornerMask/CMakeFiles/progress.marks
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/ApplyCornerMask/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lkorpal/discode_ws/DCL/BrickDetection/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/ApplyCornerMask/clean
 .PHONY : clean
 
 # The main clean target
@@ -129,57 +129,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/ApplyCornerMask/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/ApplyCornerMask/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named HistogramEq
+# Convenience name for target.
+src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/rule:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f CMakeFiles/Makefile2 src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/rule
+.PHONY : src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/rule
 
-# Build rule for target.
-HistogramEq: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 HistogramEq
-.PHONY : HistogramEq
-
-# fast build rule for target.
-HistogramEq/fast:
-	$(MAKE) -f src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build.make src/Components/HistogramEq/CMakeFiles/HistogramEq.dir/build
-.PHONY : HistogramEq/fast
-
-#=============================================================================
-# Target rules for targets named ApplyCornerMask
-
-# Build rule for target.
-ApplyCornerMask: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ApplyCornerMask
+# Convenience name for target.
+ApplyCornerMask: src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/rule
 .PHONY : ApplyCornerMask
 
 # fast build rule for target.
 ApplyCornerMask/fast:
-	$(MAKE) -f src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/build.make src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/build
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/build.make src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/build
 .PHONY : ApplyCornerMask/fast
 
-#=============================================================================
-# Target rules for targets named Rectangles
+ApplyCornerMask.o: ApplyCornerMask.cpp.o
+.PHONY : ApplyCornerMask.o
 
-# Build rule for target.
-Rectangles: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Rectangles
-.PHONY : Rectangles
+# target to build an object file
+ApplyCornerMask.cpp.o:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/build.make src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/ApplyCornerMask.cpp.o
+.PHONY : ApplyCornerMask.cpp.o
 
-# fast build rule for target.
-Rectangles/fast:
-	$(MAKE) -f src/Components/Rectangles/CMakeFiles/Rectangles.dir/build.make src/Components/Rectangles/CMakeFiles/Rectangles.dir/build
-.PHONY : Rectangles/fast
+ApplyCornerMask.i: ApplyCornerMask.cpp.i
+.PHONY : ApplyCornerMask.i
+
+# target to preprocess a source file
+ApplyCornerMask.cpp.i:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/build.make src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/ApplyCornerMask.cpp.i
+.PHONY : ApplyCornerMask.cpp.i
+
+ApplyCornerMask.s: ApplyCornerMask.cpp.s
+.PHONY : ApplyCornerMask.s
+
+# target to generate assembly for a file
+ApplyCornerMask.cpp.s:
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(MAKE) -f src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/build.make src/Components/ApplyCornerMask/CMakeFiles/ApplyCornerMask.dir/ApplyCornerMask.cpp.s
+.PHONY : ApplyCornerMask.cpp.s
 
 # Help Target
 help:
@@ -187,15 +186,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... ApplyCornerMask"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... HistogramEq"
-	@echo "... ApplyCornerMask"
-	@echo "... Rectangles"
+	@echo "... ApplyCornerMask.o"
+	@echo "... ApplyCornerMask.i"
+	@echo "... ApplyCornerMask.s"
 .PHONY : help
 
 
@@ -207,6 +207,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lkorpal/discode_ws/DCL/BrickDetection/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
