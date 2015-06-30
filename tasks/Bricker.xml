@@ -42,7 +42,7 @@
 				</Component>
 
             </Executor>
-			<Executor name="ConverterBoard" period="0.03">
+			<Executor name="ConverterBoard" period="0.04">
 
 				<Component name="HSVClassifier_Board" type="CvBasic:HSVLUT" priority="2" bump="0">
 					<param name="hue.threshold.low">0</param>
@@ -81,10 +81,10 @@
 				
 				<Component name="HSVClassifier_R" type="CvBasic:HSVLUT" priority="3" bump="0">
 					<param name="hue.threshold.low">2</param>
-					<param name="hue.threshold.high">8</param>
-					<param name="saturation.threshold.low">140</param>
+					<param name="hue.threshold.high">6</param>
+					<param name="saturation.threshold.low">200</param>
 					<param name="saturation.threshold.high">255</param>
-					<param name="value.threshold.low">120</param>
+					<param name="value.threshold.low">250</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 				
@@ -112,18 +112,18 @@
 				
 			</Executor>
 
-			<Executor name="ConverterG" period="0.036">
+			<Executor name="ConverterG" period="0.030">
 				
 				<Component name="HSVClassifier_G" type="CvBasic:HSVLUT" priority="4" bump="0">
 					<param name="hue.threshold.low">75</param>
 					<param name="hue.threshold.high">95</param>
-					<param name="saturation.threshold.low">100</param>
+					<param name="saturation.threshold.low">50</param>
 					<param name="saturation.threshold.high">255</param>
-					<param name="value.threshold.low">35</param>
+					<param name="value.threshold.low">60</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 				<Component name="Morphology1_G" type="CvBasic:CvMorphology" priority="12" bump="0">
-					<param name="iterations">5</param>
+					<param name="iterations">8</param>
 					<param name="type">MORPH_CLOSE</param>
 				</Component>
 				<Component name="Morphology2_G" type="CvBasic:CvMorphology" priority="13" bump="0">
@@ -131,7 +131,7 @@
 					<param name="type">MORPH_OPEN</param>
 				</Component>
 				<Component name="Morphology3_G" type="CvBasic:CvMorphology" priority="14" bump="0">
-					<param name="iterations">7</param>
+					<param name="iterations">2</param>
 					<param name="type">MORPH_CLOSE</param>
 				</Component>
 				<Component name="FindEdges1_G" type="CvBasic:CvCanny" priority="24" bump="0">
@@ -144,7 +144,7 @@
 			</Executor>
 			
 			
-			<Executor name="ConverterB" period="0.036">
+			<Executor name="ConverterB" period="0.025">
 				
 
 				<Component name="HSVClassifier_B" type="CvBasic:HSVLUT" priority="5" bump="0">
