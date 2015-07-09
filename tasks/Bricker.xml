@@ -26,7 +26,12 @@
 					<param name="gain_value">0</param>
 					<param name="white_balance_mode">onepush</param>
 				</Component>
-				
+				<!--
+				 <Component name="Source" type="ROSProxy:CameraSubscriber" priority="1" bump="0">
+                    <param name="image_topic">/camera_t/image_color</param>
+                   
+				</Component>
+				-->
                 <Component name="CameraInfo" type="CvCoreTypes:CameraInfoProvider" priority="2">
 					<param name="width">1296</param>
 					<param name="height">1032</param>
