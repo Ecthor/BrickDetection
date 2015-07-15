@@ -122,7 +122,7 @@
 				<Component name="HSVClassifier_G" type="CvBasic:HSVLUT" priority="4" bump="0">
 					<param name="hue.threshold.low">60</param>
 					<param name="hue.threshold.high">93</param>
-					<param name="saturation.threshold.low">170</param>
+					<param name="saturation.threshold.low">130</param>
 					<param name="saturation.threshold.high">255</param>
 					<param name="value.threshold.low">50</param>
 					<param name="value.threshold.high">255</param>
@@ -157,7 +157,7 @@
 					<param name="hue.threshold.high">115</param>
 					<param name="saturation.threshold.low">160</param>
 					<param name="saturation.threshold.high">255</param>
-					<param name="value.threshold.low">150</param>
+					<param name="value.threshold.low">120</param>
 					<param name="value.threshold.high">255</param>
 				</Component>
 				<Component name="Morphology1_B" type="CvBasic:CvMorphology" priority="15" bump="0">
