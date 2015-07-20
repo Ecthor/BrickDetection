@@ -155,7 +155,7 @@
 				<Component name="HSVClassifier_B" type="CvBasic:HSVLUT" priority="5" bump="0">
 					<param name="hue.threshold.low">105</param>
 					<param name="hue.threshold.high">115</param>
-					<param name="saturation.threshold.low">160</param>
+					<param name="saturation.threshold.low">120</param>
 					<param name="saturation.threshold.high">255</param>
 					<param name="value.threshold.low">120</param>
 					<param name="value.threshold.high">255</param>
