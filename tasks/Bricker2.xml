@@ -1,0 +1,354 @@
+<Task>
+	<Reference>
+		<Author>
+			<name>Lukasz Korpal</name>
+			<link></link>
+		</Author>
+		
+		<Description>
+			<brief></brief>
+			<full></full>	
+		</Description>
+	</Reference>
+	
+	<Subtasks>
+		<Subtask name="Main">
+
+            <Executor name="Loader" period="0.05">
+                <Component name="Source" type="CameraPGR:CameraPGR" priority="1" bump="0">
+					<param name="camera_serial">13481977</param>
+					<param name="width">1296</param>
+					<param name="height">1032</param>
+					<param name="brightness_mode">manual</param>
+					<param name="shutter_mode">manual</param>
+					<param name="shutter_value">60</param>
+					<param name="gain_mode">manual</param>
+					<param name="gain_value">0</param>
+					<param name="white_balance_mode">onepush</param>
+				</Component>
+				<!--
+				 <Component name="Source" type="ROSProxy:CameraSubscriber" priority="1" bump="0">
+                    <param name="image_topic">/camera_t/image_color</param>
+                   
+				</Component>
+				-->
+                <Component name="CameraInfo" type="CvCoreTypes:CameraInfoProvider" priority="2">
+					<param name="width">1296</param>
+					<param name="height">1032</param>
+					<param name="camera_matrix">1037.615763 0.000000 641.739727 ; 0.000000 1030.530534 516.345004 ; 0.000000 0.000000 1.000000</param>
+					<param name="dist_coeffs">-0.405033 0.189376 0.000262 0.000465 0.000000</param>
+				</Component>
+
+				<Component name="Undistort" type="CvBasic:CvUndistort" priority="3">
+				</Component>
+				
+				<Component name="ColorConverter" type="CvBasic:CvColorConv" priority="4" bump="0">
+					<param name="type">BGR2HSV</param>
+				</Component>
+
+            </Executor>
+			<Executor name="ConverterBoard" period="0.04">
+
+				<Component name="HSVClassifier_Board" type="CvBasic:HSVLUT" priority="2" bump="0">
+					<param name="hue.threshold.low">0</param>
+					<param name="hue.threshold.high">180</param>
+					<param name="saturation.threshold.low">50</param>
+					<param name="saturation.threshold.high">150</param>
+					<param name="value.threshold.low">80</param>
+					<param name="value.threshold.high">255</param>
+				</Component>
+				
+				<Component name="Morphology1_Board" type="CvBasic:CvMorphology" priority="6" bump="0">
+					<param name="iterations">7</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				<Component name="Morphology2_Board" type="CvBasic:CvMorphology" priority="7" bump="0">
+					<param name="iterations">4</param>
+					<param name="type">MORPH_OPEN</param>
+				</Component>
+				<Component name="Morphology3_Board" type="CvBasic:CvMorphology" priority="8" bump="0">
+					<param name="iterations">7</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				
+				
+				<Component name="FindEdges1_Board" type="CvBasic:CvCanny" priority="18" bump="0">
+				</Component>
+				<Component name="FindEdges2_Board" type="CvBasic:CvContour" priority="19" bump="0">
+				</Component>
+				<Component name="FindRectangles_Board" type="BrickDetection:Rectangles" priority="20" bump="0">
+					<param name="Colour">0</param>
+				</Component>
+				
+			</Executor>
+			
+			<Executor name="ConverterR" period="0.03">
+				
+				<Component name="HSVClassifier_R" type="CvBasic:HSVLUT" priority="3" bump="0">
+					<param name="hue.threshold.low">2</param>
+					<param name="hue.threshold.high">8</param>
+					<param name="saturation.threshold.low">150</param>
+					<param name="saturation.threshold.high">255</param>
+					<param name="value.threshold.low">110</param>
+					<param name="value.threshold.high">255</param>
+				</Component>
+				
+				
+				<Component name="Morphology1_R" type="CvBasic:CvMorphology" priority="9" bump="0">
+					<param name="iterations">5</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				<Component name="Morphology2_R" type="CvBasic:CvMorphology" priority="10" bump="0">
+					<param name="iterations">2</param>
+					<param name="type">MORPH_OPEN</param>
+				</Component>
+				<Component name="Morphology3_R" type="CvBasic:CvMorphology" priority="11" bump="0">
+					<param name="iterations">7</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				
+				<Component name="FindEdges1_R" type="CvBasic:CvCanny" priority="21" bump="0">
+				</Component>
+				<Component name="FindEdges2_R" type="CvBasic:CvContour" priority="22" bump="0">
+				</Component>
+				<Component name="FindRectangles_R" type="BrickDetection:Rectangles" priority="23" bump="0">
+					<param name="Colour">1</param>
+				</Component>
+				
+			</Executor>
+
+			<Executor name="ConverterG" period="0.02">
+				
+				<Component name="HSVClassifier_G" type="CvBasic:HSVLUT" priority="4" bump="0">
+					<param name="hue.threshold.low">60</param>
+					<param name="hue.threshold.high">93</param>
+					<param name="saturation.threshold.low">130</param>
+					<param name="saturation.threshold.high">255</param>
+					<param name="value.threshold.low">50</param>
+					<param name="value.threshold.high">255</param>
+				</Component>
+				<Component name="Morphology1_G" type="CvBasic:CvMorphology" priority="12" bump="0">
+					<param name="iterations">8</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				<Component name="Morphology2_G" type="CvBasic:CvMorphology" priority="13" bump="0">
+					<param name="iterations">2</param>
+					<param name="type">MORPH_OPEN</param>
+				</Component>
+				<Component name="Morphology3_G" type="CvBasic:CvMorphology" priority="14" bump="0">
+					<param name="iterations">2</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				<Component name="FindEdges1_G" type="CvBasic:CvCanny" priority="24" bump="0">
+				</Component>				
+				<Component name="FindEdges2_G" type="CvBasic:CvContour" priority="25" bump="0">
+				</Component>
+				<Component name="FindRectangles_G" type="BrickDetection:Rectangles" priority="26" bump="0">
+					<param name="Colour">2</param>
+				</Component>
+			</Executor>
+			
+			
+			<Executor name="ConverterB" period="0.01">
+				
+
+				<Component name="HSVClassifier_B" type="CvBasic:HSVLUT" priority="5" bump="0">
+					<param name="hue.threshold.low">105</param>
+					<param name="hue.threshold.high">115</param>
+					<param name="saturation.threshold.low">120</param>
+					<param name="saturation.threshold.high">255</param>
+					<param name="value.threshold.low">70</param>
+					<param name="value.threshold.high">255</param>
+				</Component>
+				<Component name="Morphology1_B" type="CvBasic:CvMorphology" priority="15" bump="0">
+					<param name="iterations">5</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				<Component name="Morphology2_B" type="CvBasic:CvMorphology" priority="16" bump="0">
+					<param name="iterations">1</param>
+					<param name="type">MORPH_OPEN</param>
+				</Component>
+				<Component name="Morphology3_B" type="CvBasic:CvMorphology" priority="17" bump="0">
+					<param name="iterations">7</param>
+					<param name="type">MORPH_CLOSE</param>
+				</Component>
+				<Component name="FindEdges1_B" type="CvBasic:CvCanny" priority="27" bump="0">
+				</Component>				
+				<Component name="FindEdges2_B" type="CvBasic:CvContour" priority="28" bump="0">
+				</Component>
+				<Component name="FindRectangles_B" type="BrickDetection:Rectangles" priority="29" bump="0">
+					<param name="Colour">3</param>
+				</Component>
+			</Executor>
+			
+
+			<Executor name="Visualization" period="0.005">
+				<Component name="ProxyBoard" type="ROSProxy:Float32MultiArrayProxy" priority="30" bump="0">
+				</Component>
+				<Component name="ProxyR" type="ROSProxy:Float32MultiArrayProxy" priority="31" bump="0">
+				</Component>
+				<Component name="ProxyG" type="ROSProxy:Float32MultiArrayProxy" priority="32" bump="0">
+				</Component>
+				<Component name="ProxyB" type="ROSProxy:Float32MultiArrayProxy" priority="33" bump="0">
+				</Component>
+				<Component name="Window" type="CvBasic:CvWindow" priority="1" bump="0">
+					<param name="count">10</param>
+					<param name="title">MorphBoard,HSV+mR,HSV+mG,HSV+mB,ER,EG,EB,RectR,RectG,RectB</param>
+				</Component>
+			</Executor>
+		</Subtask>	
+	
+	</Subtasks>
+	
+	<DataStreams>
+		<Source name="ColorConverter.out_img">
+			<sink>HSVClassifier_R.in_img</sink>	
+			<sink>HSVClassifier_G.in_img</sink>	
+			<sink>HSVClassifier_B.in_img</sink>		
+			<sink>HSVClassifier_Board.in_img</sink>	
+		</Source>
+		<Source name="HSVClassifier_Board.out_img">
+			<sink>Morphology1_Board.in_img</sink>
+		</Source>
+		<Source name="HSVClassifier_R.out_img">
+			<sink>Morphology1_R.in_img</sink>
+		</Source>
+		<Source name="HSVClassifier_G.out_img">
+			<sink>Morphology1_G.in_img</sink>
+		</Source>
+		<Source name="HSVClassifier_B.out_img">
+			<sink>Morphology1_B.in_img</sink>
+		</Source>
+		
+		
+		<!--
+		-->
+		<Source name="Morphology1_Board.out_img">
+			<sink>Morphology2_Board.in_img</sink>
+		</Source>
+		<Source name="Morphology2_Board.out_img">
+			<sink>Morphology3_Board.in_img</sink>
+		</Source>
+		<Source name="Morphology3_Board.out_img">
+			<sink>FindEdges1_Board.in_img</sink>
+			<sink>Window.in_img0</sink>		 
+		</Source>
+		
+		<Source name="Morphology1_R.out_img">
+			<sink>Morphology2_R.in_img</sink>
+		</Source>
+		<Source name="Morphology2_R.out_img">
+			<sink>Morphology3_R.in_img</sink>
+		</Source>
+		<Source name="Morphology3_R.out_img">
+			<sink>FindEdges1_R.in_img</sink>
+			<sink>Window.in_img1</sink>		
+		</Source>
+		
+		<Source name="Morphology1_G.out_img">
+			<sink>Morphology2_G.in_img</sink>
+		</Source>
+		<Source name="Morphology2_G.out_img">
+			<sink>Morphology3_G.in_img</sink>
+		</Source>
+		<Source name="Morphology3_G.out_img">
+			<sink>Window.in_img2</sink>		
+			<sink>FindEdges1_G.in_img</sink>
+		</Source>
+		
+		<Source name="Morphology1_B.out_img">
+			<sink>Morphology2_B.in_img</sink>
+		</Source>
+		<Source name="Morphology2_B.out_img">
+			<sink>Morphology3_B.in_img</sink>
+		</Source>
+		<Source name="Morphology3_B.out_img">
+			<sink>FindEdges1_B.in_img</sink>
+			<sink>Window.in_img3</sink>		
+		</Source>
+		
+		
+		<Source name="FindEdges1_Board.out_img">
+			<sink>FindEdges2_Board.in_img</sink>	
+		</Source>
+		<Source name="FindEdges1_R.out_img">
+			<sink>FindEdges2_R.in_img</sink>	
+		</Source>
+		<Source name="FindEdges1_G.out_img">
+			<sink>FindEdges2_G.in_img</sink>	
+		</Source>
+		<Source name="FindEdges1_B.out_img">
+			<sink>FindEdges2_B.in_img</sink>	
+		</Source>
+		
+		<Source name="FindEdges2_R.out_img">
+			<sink>Window.in_img4</sink>		
+		</Source>
+		<Source name="FindEdges2_G.out_img">
+			<sink>Window.in_img5</sink>			
+		</Source>
+		<Source name="FindEdges2_B.out_img">
+			<sink>Window.in_img6</sink>		
+		</Source>
+		
+		<Source name="FindEdges2_Board.out_contours">
+			<sink>FindRectangles_Board.in_contours</sink>		
+		</Source>
+		<Source name="FindEdges2_R.out_contours">
+			<sink>FindRectangles_R.in_contours</sink>		
+		</Source>
+		<Source name="FindEdges2_G.out_contours">
+			<sink>FindRectangles_G.in_contours</sink>		
+		</Source>
+		<Source name="FindEdges2_B.out_contours">
+			<sink>FindRectangles_B.in_contours</sink>		
+		</Source>
+		
+		<Source name="FindRectangles_Board.out_data">
+			<sink>ProxyBoard.in_data</sink>		
+		</Source>
+		<Source name="FindRectangles_R.out_data">
+			<sink>ProxyR.in_data</sink>		
+		</Source>
+		<Source name="FindRectangles_G.out_data">
+			<sink>ProxyG.in_data</sink>		
+		</Source>
+		<Source name="FindRectangles_B.out_data">
+			<sink>ProxyB.in_data</sink>		
+		</Source>
+		
+		<Source name="FindRectangles_Board.out_img">
+			<sink>Window.in_img0</sink>		
+		</Source>
+		<Source name="FindRectangles_R.out_img">
+			<sink>Window.in_img7</sink>	
+		</Source>
+		<Source name="FindRectangles_G.out_img">
+			<sink>Window.in_img8</sink>		
+		</Source>
+		<Source name="FindRectangles_B.out_img">
+			<sink>Window.in_img9</sink>
+		</Source>
+		
+		<!-- Img processing -->
+		
+        <Source name="Source.out_img">
+        	<sink>Undistort.in_img</sink>	
+        </Source>
+        <Source name="CameraInfo.out_camera_info">
+        	<sink>Undistort.in_camera_info</sink>
+        </Source>
+
+        <Source name="Undistort.out_img">
+            <sink>ColorConverter.in_img</sink>	
+			<sink>FindRectangles_Board.in_img</sink>
+			<sink>FindRectangles_R.in_img</sink>	
+			<sink>FindRectangles_G.in_img</sink>	
+			<sink>FindRectangles_B.in_img</sink>	
+        </Source>
+    </DataStreams>
+</Task>
+
+
+
+

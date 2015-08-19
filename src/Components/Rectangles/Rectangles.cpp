@@ -95,11 +95,7 @@ void Rectangles::FindRectangle() {
 		// Skip small or non-convex objects
 		if (std::fabs(cv::contourArea(contours[i])) < 100 || !cv::isContourConvex(approx))
 			continue;
-		if (approx.size() == 3)
-		{
-			setLabel(dst, "TRI", contours[i]); // Triangles
-		}
-		else if (approx.size() >= 4 && approx.size() <= 6)
+		if (approx.size() >= 4 && approx.size() <= 6)
 		{
 			// Number of vertices of polygonal curve
 			int vtc = approx.size();
@@ -121,14 +117,24 @@ void Rectangles::FindRectangle() {
 				CLOG(LNOTICE) << "Rectangle found!" << approx;
 				outdata.push_back(float(BrickColour));
 				circle(dst, approx[0], 5, cv::Scalar(255,255,0));
+				//setLabel(dst, "0", approx[0]);
 				CLOG(LNOTICE) << "Rectangle 0x found! " << float(approx[0].x);
 				outdata.push_back(float(approx[0].x));
+				//setLabel(dst, "1", approx[1]);
 				circle(dst, approx[1], 5, cv::Scalar(255,255,0));
+				circle(dst, approx[1], 6, cv::Scalar(255,255,0));
 				outdata.push_back(float(approx[1].x));
+				//setLabel(dst, "2", approx[2]);
 				circle(dst, approx[2], 5, cv::Scalar(255,255,0));
+				circle(dst, approx[2], 6, cv::Scalar(255,255,0));
+				circle(dst, approx[2], 7, cv::Scalar(255,255,0));
 				outdata.push_back(float(approx[2].x));
+				//setLabel(dst, "RECT", contours[i]);
 				circle(dst, approx[3], 5, cv::Scalar(255,255,0));
+				circle(dst, approx[3], 7, cv::Scalar(255,255,0));
+				circle(dst, approx[3], 9, cv::Scalar(255,255,0));
 				outdata.push_back(float(approx[3].x));
+				//setLabel(dst, "3", approx[3]);
 				
 				outdata.push_back(float(approx[0].y));
 				outdata.push_back(float(approx[1].y));
@@ -136,16 +142,6 @@ void Rectangles::FindRectangle() {
 				outdata.push_back(float(approx[3].y));
 				++counter;
 			}
-		}
-		else
-		{
-			// Detect and label circles
-			double area = cv::contourArea(contours[i]);
-			cv::Rect r = cv::boundingRect(contours[i]);
-			int radius = r.width / 2;
-			if (std::abs(1 - ((double)r.width / r.height)) <= 0.2 &&
-			std::abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2)
-			setLabel(dst, "CIR", contours[i]);
 		}
 	}
 
